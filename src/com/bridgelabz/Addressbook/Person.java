@@ -1,11 +1,7 @@
 package com.bridgelabz.Addressbook;
-
-import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class Person implements InterfaceOne  {
@@ -16,7 +12,9 @@ public class Person implements InterfaceOne  {
     ContactInfo infoContact = new ContactInfo();
     Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
     Map<String,Contact> detailsBook = new HashMap<>();
-    static Map<String,HashMap<String,Contact>> book = new HashMap<>();
+    static Map<String,Contact> personByCity = new HashMap<>();
+    Map<String,Contact> personByState = new HashMap<>();
+    static Map<String,Map<String,Contact>> book = new HashMap<>();
 
     public void createContact() {
         System.out.println("Enter how many contacts you want to create");
@@ -84,7 +82,7 @@ public class Person implements InterfaceOne  {
         System.out.println("Enter Name of Address Book");
         String bookName = sc.next();
         if(!book.containsKey(bookName)) {
-            book.put(bookName, (HashMap<String, Contact>) detailsBook);
+            book.put(bookName, detailsBook);
         }
         else {
             System.out.println("Book already exists!");
@@ -99,11 +97,19 @@ public class Person implements InterfaceOne  {
             noOfAddressBook--;
         }
     }
+    public void searchPerson() {
+        System.out.println("Enter person name to search ");
+        String name = sc.next();
+        for(Map.Entry e : detailsBook.entrySet()) {
+            if(detailsBook.get(name).equals(e.getValue())) {
+                System.out.println(e.getValue());
+            }
+        }
+    }
     public void displayBook() {
         System.out.println("Address Books are:");
         for(Map.Entry e : book.entrySet()) {
             System.out.println(e.getKey()+"--> "+e.getValue());
         }
     }
-
 }
