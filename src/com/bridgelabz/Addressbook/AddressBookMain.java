@@ -12,5 +12,9 @@ public class AddressBookMain {
         person1.operation();
         person1.displayBook();
         person1.searchPerson();
+        person1.addContactByCity();
+        person1.viewByCity();
+        person1.addContactByState();
+        person1.viewByState();
     }
 }

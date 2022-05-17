@@ -11,4 +11,8 @@ public interface InterfaceOne {
     void addToBook();
     void operation();
     void searchPerson();
+    void addContactByCity();
+    void viewByCity();
+    void addContactByState();
+    void viewByState();
 }
