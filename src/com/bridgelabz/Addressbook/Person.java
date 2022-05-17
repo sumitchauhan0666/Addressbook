@@ -1,7 +1,6 @@
 package com.bridgelabz.Addressbook;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -152,6 +151,7 @@ public class Person implements InterfaceOne  {
         Map<String,Contact> detailsByCity =personByCity.entrySet().stream().filter(e->e.getKey().equals("Pune")).collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
         if(detailsByCity!=null) {
             System.out.println(detailsByCity);
+            System.out.println("Number of person belonging to city is: "+detailsByCity.size());
         }else {
             System.out.println("Person having particular city is not present");
         }
@@ -160,6 +160,7 @@ public class Person implements InterfaceOne  {
         Map<String,Contact> detailsByState =personByState.entrySet().stream().filter(e->e.getKey().equals("Karnataka")).collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
         if(detailsByState!=null) {
             System.out.println(detailsByState);
+            System.out.println("Number of person belonging to state is: "+detailsByState.size());
         }else {
             System.out.println("Person with particular state is not present");
         }
